@@ -30,11 +30,6 @@ const list=[{
   objectID:1,
 }]
 class App extends Component {
-  test()
-  {
-    console.log(siva);
-
-  }
 
   render() {
     
@@ -44,6 +39,7 @@ class App extends Component {
          
           list.map(item=>{
           <div key={item.objectID}> 
+          <span>{siva.firstname}</span>
           <span>
             <a href={item.url}>{item.title} </a>
             </span>
