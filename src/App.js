@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import './App.css';
 { /* import logo from './logo.svg'; */}
 
+class Developer{
+  constructor(firstname, lastname){
+    this.firstname=firstname;
+    this.lastname=lastname;
+  }
+  getName(){
+    return this.firstname+' '+this.lastname;
+  }
+}
+const siva= new Developer('Siva Karthikeyan','Krishnan');
+
 const list=[{
   title: 'React',
   url: 'https://facebook.github.io/react',
@@ -19,10 +30,18 @@ const list=[{
   objectID:1,
 }]
 class App extends Component {
+  test()
+  {
+    console.log(siva);
+
+  }
+
   render() {
+    
     return (
       <div className="App">
         {
+         
           list.map(item=>{
           <div key={item.objectID}> 
           <span>
