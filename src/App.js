@@ -48,9 +48,7 @@ class App extends Component {
     return (
       <div className="App">
         {
-           // eslint-disable-next-line
-          this.state.list.map(item=>{
-             // eslint-disable-next-line
+          this.state.list.map(item=>
           <div key={item.objectID}> 
           <span>
             <a href={item.url}>{item.title} </a>
@@ -63,7 +61,7 @@ class App extends Component {
               </span>
             </div>
             
-        }) }
+        )}
       </div>
     );
   }
