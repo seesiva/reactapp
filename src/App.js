@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-{ /* import logo from './logo.svg'; */}
-
-class Developer{
+ // eslint-disable-next-line
+{/*class Developer{
   constructor(firstname, lastname){
     this.firstname=firstname;
     this.lastname=lastname;
@@ -11,7 +10,7 @@ class Developer{
     return this.firstname+' '+this.lastname;
   }
 }
-const siva= new Developer('Siva Karthikeyan','Krishnan');
+ const siva= new Developer('Siva Karthikeyan','Krishnan'); */}
 
 const list=[{
   title: 'React',
@@ -30,24 +29,41 @@ const list=[{
   objectID:1,
 }]
 class App extends Component {
-
+  constructor(props){
+    super(props);
+    this.state={
+      list,
+    };
+    this.onDismiss=this.onDismiss.bind(this);
+  }
+    
+    onDismiss(id) {
+      const isNotId = item => item.objectID !== id;
+      const updatedList = this.state.list.filter(isNotId);
+      this.setState({ list: updatedList });
+    }
+  
   render() {
     
     return (
       <div className="App">
         {
-         
-          list.map(item=>{
+           // eslint-disable-next-line
+          this.state.list.map(item=>{
+             // eslint-disable-next-line
           <div key={item.objectID}> 
-          <span>{siva.firstname}</span>
           <span>
             <a href={item.url}>{item.title} </a>
             </span>
             <span>{item.author}</span>
             <span>{item.num_comments}</span>
             <span>{item.points}</span>
+            <span>
+              <button onClick={()=>this.onDismiss(item.objectID)} type="button">Dismiss</button>
+              </span>
             </div>
-        })}
+            
+        }) }
       </div>
     );
   }
